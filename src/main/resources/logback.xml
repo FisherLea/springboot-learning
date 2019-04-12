@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <property name="LOG_PATH" value="./logs"></property>
+
+    <property name="LOG_DIR" value="./xxx-logs"/>
+    <property name="LOG_PROJECT" value="boot-learning"/>
+    <property name="LOG_MODULE" value="springboot-learning"/>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <jmxConfigurator/>
+
+    <contextName>springboot-learning</contextName>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.example" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

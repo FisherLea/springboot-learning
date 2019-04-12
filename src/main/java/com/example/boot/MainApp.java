@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MainApp {
 
     public static void main(String[] args) {
-        FlumeAgentApplication.start("classpath:flume.properties");
+        //FlumeAgentApplication.start("classpath:flume.properties");
 
         SpringApplication.run(MainApp.class, args);
     }

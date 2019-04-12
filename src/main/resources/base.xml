@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<included>
+    <conversionRule conversionWord="monitor" converterClass=""></conversionRule>
+    <conversionRule conversionWord="monitorType" converterClass=""></conversionRule>
+
+    <appender name="MONITOR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/monitor.log</file>
+
+        <append>true</append>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/monitor.log.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <MaxHistory>14</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [$monitorType] [] [${LOG_PROJECT}] [${LOG_MODULE}] [%nopex%monitor]%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="TRACE" level="INFO" additivity="false">
+        <appender-ref ref="MONITOR"/>
+    </logger>
+
+    <logger name="STATS" level="INFO" additivity="false">
+        <appender-ref ref="MONITOR"/>
+    </logger>
+</included>
